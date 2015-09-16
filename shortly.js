@@ -27,9 +27,10 @@ app.use(bodyParser.urlencoded({
 app.use(session({
   secret: 'super secret phrase',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: true
 }));
-//AUTH CHECK
+//AUTH CHECK - Included in each relevant URL to reduce the number of calls made to this.
+
 // app.get('*', function(req, res, next) {
 //   console.log("checking for validation")
 //   util.restrict(req, res, next);

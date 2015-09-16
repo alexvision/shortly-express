@@ -12,6 +12,7 @@ var User = db.Model.extend({
 		this.on('creating', function(model, attrs, options) {
 
 		})
+
 	}
 });
 
