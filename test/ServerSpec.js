@@ -282,7 +282,7 @@ describe('', function() {
       };
 
       request(options, function(error, res, body) {
-        console.log("Testing HEADDERS", res);
+        //console.log("Testing HEADDERS", res);
         expect(res.headers.location).to.equal('/');
         done();
       });

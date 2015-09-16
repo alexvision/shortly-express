@@ -121,19 +121,17 @@ app.post('/login',
             req.session = req.session.regenerate(function(err) {
               req.session.token = token;
               req.session.username = req.body.username
-              console.log("THIS IS THE REQ", req.session);
               res.redirect('/')
-
             })
-            console.log("THIS IS THE SESSION DATA:", req.session);
           })
-
         } else if (result === false) {
           //needs some sort of visual indicator of a failed login
           res.redirect('/login');
-
         }
       });
+    }).catch(function(err) {
+      console.log(err);
+      res.redirect('/login');
     })
   }
 );
@@ -153,7 +151,7 @@ app.post('/signup',
         salt: salt
       }).fetch().then(function(found) {
         if (found) {
-          res.send(200, found.attributes);
+          res.redirect('/login')
         } else {
           Users.create({
               username: req.body.username,
@@ -161,7 +159,7 @@ app.post('/signup',
               salt: salt
             })
             .then(function(newLink) {
-              res.send(200, newLink);
+              res.redirect('/')
             });
         }
       });
