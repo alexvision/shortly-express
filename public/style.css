@@ -135,3 +135,9 @@ form input[type=text], form input[type=password] {
 .creator .message {
   clear: both;
 }
+
+.logout {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
